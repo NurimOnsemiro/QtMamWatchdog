@@ -1,0 +1,23 @@
+[링크]
+* https://www.programmersought.com/article/13015862993/
+
+[내용]
+* app.manifest를 만들고 다음 내용 입력
+
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>  
+<assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>  
+	<trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">  
+		<security>  
+			<requestedPrivileges>  
+				<requestedExecutionLevel level='requireAdministrator' uiAccess='false' />  
+			</requestedPrivileges>  
+		</security>  
+	</trustInfo>  
+</assembly>  
+
+* 생성된 mam_watchdog.exe가 있는 곳에 복사한 후에 VS에서 제공하는 Developer Command Prompt를 실행한다.
+* 다음의 명령어를 입력한다.
+
+mt.exe -manifest "app.manifest" -outputresource:"mam_watchdog.exe";#1
+
+* 이제 앱은 관리자 권한을 요청하게 된다.
